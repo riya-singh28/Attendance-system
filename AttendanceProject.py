@@ -33,11 +33,11 @@ encodeListKnown = faceEncodings(images)
 print("all encodings complete")
 
 def attendance(name):
-    df = pd.read_csv('Attendance.csv')
-    print(df)
-
+    # df = pd.read_csv('Attendance.csv')
+    # print(df)
     with open('Attendance.csv', 'r+') as f:
         myDataList = f.readlines()
+        print(myDataList)
         nameList = []
         for Line in myDataList:
             entry = Line.split(',')
@@ -48,12 +48,10 @@ def attendance(name):
             time_now = datetime.now()
             tStr = time_now.strftime('%H:%M:%S')
             dStr = time_now.strftime('%d/%m/%Y')
-            f.writelines(f'{name},{tStr},{dStr}')
+            f.writelines(f'\n{name},{tStr},{dStr}')
 
         print(nameList)
         print(name)
-
-
 
 cap = cv2.VideoCapture(0)
 
